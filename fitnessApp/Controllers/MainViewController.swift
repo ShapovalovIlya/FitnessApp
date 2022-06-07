@@ -19,14 +19,6 @@ class MainViewController: UIViewController {
         return imageView
     }()
     
-    private let calendarView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .specialGreen
-        view.layer.cornerRadius = 10
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
-    
     private let userNameLabel: UILabel = {
         let label = UILabel()
         label.text = "User Name"
@@ -39,19 +31,31 @@ class MainViewController: UIViewController {
         return label
     }()
     
-    private let addWorkoutButton: UIButton = {
+    private lazy var addWorkoutButton: UIButton = {
         let button = UIButton(type: .system)
         button.backgroundColor = .specialYellow
         button.layer.cornerRadius = 10
         button.setTitle("Add workout", for: .normal)
         button.titleLabel?.font = .robotoMedium12()
-        button.tintColor = .specialGreen
-        
+        button.tintColor = .specialDarkGreen
+        button.imageEdgeInsets = UIEdgeInsets(top: 0,
+                                              left: 20,
+                                              bottom: 15,
+                                              right: 0)
+        button.titleEdgeInsets = UIEdgeInsets(top: 50,
+                                              left: -40,
+                                              bottom: 0,
+                                              right: 0)
         button.setImage(UIImage(named: "addWorkout"), for: .normal)
-        
+        button.addTarget(self, action: #selector(addWorkoutButtonTapped), for: .touchUpInside)
+        button.addShadowOnView()
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
+    
+    private let calendarView = CalendarView()
+    private let weatherView = WeatherView()
+    
     
     //MARK: - Lifecycle
     override func viewDidLoad() {
@@ -59,6 +63,7 @@ class MainViewController: UIViewController {
         
         setupViews()
         setConstrains()
+        
     }
     
     override func viewDidLayoutSubviews() {
@@ -71,7 +76,13 @@ class MainViewController: UIViewController {
         view.addSubview(userFotoImageView)
         view.addSubview(userNameLabel)
         view.addSubview(addWorkoutButton)
+        view.addSubview(weatherView)
         
+    }
+    
+    //MARK: - Private Methods
+    @objc private func addWorkoutButtonTapped() {
+        print("addWorkoutButtonTapped")
     }
     
 }
@@ -105,6 +116,13 @@ extension MainViewController {
             addWorkoutButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
             addWorkoutButton.heightAnchor.constraint(equalToConstant: 80),
             addWorkoutButton.widthAnchor.constraint(equalToConstant: 80)
+        ])
+        // weatherView constraints
+        NSLayoutConstraint.activate([
+            weatherView.topAnchor.constraint(equalTo: calendarView.bottomAnchor, constant: 5),
+            weatherView.leadingAnchor.constraint(equalTo: addWorkoutButton.trailingAnchor, constant: 10),
+            weatherView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
+            weatherView.heightAnchor.constraint(equalToConstant: 80)
         ])
     }
     

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		86C1691D284E650900A96058 /* WeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C1691C284E650900A96058 /* WeatherView.swift */; };
 		86EEBE3A284633C5009CD057 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EEBE39284633C5009CD057 /* AppDelegate.swift */; };
 		86EEBE3C284633C5009CD057 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EEBE3B284633C5009CD057 /* SceneDelegate.swift */; };
 		86EEBE3E284633C5009CD057 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EEBE3D284633C5009CD057 /* MainViewController.swift */; };
@@ -18,9 +19,12 @@
 		86EEBE5B28464E22009CD057 /* UIStackView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EEBE5A28464E22009CD057 /* UIStackView+Extensions.swift */; };
 		86EEBE5F28465AF1009CD057 /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 86EEBE5D28465AF1009CD057 /* Roboto-Medium.ttf */; };
 		86EEBE6028465AF1009CD057 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 86EEBE5E28465AF1009CD057 /* Roboto-Bold.ttf */; };
+		86EEBE632846ACBF009CD057 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EEBE622846ACBF009CD057 /* CalendarView.swift */; };
+		86EEBE652846C213009CD057 /* CalendarCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EEBE642846C213009CD057 /* CalendarCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		86C1691C284E650900A96058 /* WeatherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherView.swift; sourceTree = "<group>"; };
 		86EEBE36284633C5009CD057 /* fitnessApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = fitnessApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		86EEBE39284633C5009CD057 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		86EEBE3B284633C5009CD057 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -34,6 +38,8 @@
 		86EEBE5A28464E22009CD057 /* UIStackView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+Extensions.swift"; sourceTree = "<group>"; };
 		86EEBE5D28465AF1009CD057 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
 		86EEBE5E28465AF1009CD057 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
+		86EEBE622846ACBF009CD057 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
+		86EEBE642846C213009CD057 /* CalendarCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +101,7 @@
 		86EEBE4F284649A1009CD057 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				86EEBE612846ACAC009CD057 /* MainVC */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -144,6 +151,24 @@
 				86EEBE5D28465AF1009CD057 /* Roboto-Medium.ttf */,
 			);
 			path = Font;
+			sourceTree = "<group>";
+		};
+		86EEBE612846ACAC009CD057 /* MainVC */ = {
+			isa = PBXGroup;
+			children = (
+				86EEBE662846C21E009CD057 /* Cells */,
+				86EEBE622846ACBF009CD057 /* CalendarView.swift */,
+				86C1691C284E650900A96058 /* WeatherView.swift */,
+			);
+			path = MainVC;
+			sourceTree = "<group>";
+		};
+		86EEBE662846C21E009CD057 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				86EEBE642846C213009CD057 /* CalendarCollectionViewCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -220,9 +245,12 @@
 			files = (
 				86EEBE5928464CF7009CD057 /* UIView+Extensions.swift in Sources */,
 				86EEBE3E284633C5009CD057 /* MainViewController.swift in Sources */,
+				86EEBE632846ACBF009CD057 /* CalendarView.swift in Sources */,
 				86EEBE5728464B98009CD057 /* UIColor+Extensions.swift in Sources */,
 				86EEBE3A284633C5009CD057 /* AppDelegate.swift in Sources */,
+				86C1691D284E650900A96058 /* WeatherView.swift in Sources */,
 				86EEBE5B28464E22009CD057 /* UIStackView+Extensions.swift in Sources */,
+				86EEBE652846C213009CD057 /* CalendarCollectionViewCell.swift in Sources */,
 				86EEBE5528464B28009CD057 /* UIFont+Extensions.swift in Sources */,
 				86EEBE3C284633C5009CD057 /* SceneDelegate.swift in Sources */,
 			);
