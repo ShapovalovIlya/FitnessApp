@@ -53,9 +53,18 @@ class MainViewController: UIViewController {
         return button
     }()
     
+    private let workoutTodayLabel: UILabel = {
+       let label = UILabel()
+        label.text = "Workout today"
+        label.textColor = .lightGray
+        label.font = .robotoMedium12()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
     private let calendarView = CalendarView()
     private let weatherView = WeatherView()
-    
+    private let workOutTableView = WorkOutTableView()
     
     //MARK: - Lifecycle
     override func viewDidLoad() {
@@ -77,6 +86,8 @@ class MainViewController: UIViewController {
         view.addSubview(userNameLabel)
         view.addSubview(addWorkoutButton)
         view.addSubview(weatherView)
+        view.addSubview(workoutTodayLabel)
+        view.addSubview(workOutTableView)
         
     }
     
@@ -123,6 +134,19 @@ extension MainViewController {
             weatherView.leadingAnchor.constraint(equalTo: addWorkoutButton.trailingAnchor, constant: 10),
             weatherView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
             weatherView.heightAnchor.constraint(equalToConstant: 80)
+        ])
+        // workoutTodayLabel
+        NSLayoutConstraint.activate([
+            workoutTodayLabel.topAnchor.constraint(equalTo: addWorkoutButton.bottomAnchor, constant: 5),
+            workoutTodayLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
+            workoutTodayLabel.heightAnchor.constraint(equalToConstant: 20)
+        ])
+        // workOutTableView constraints
+        NSLayoutConstraint.activate([
+            workOutTableView.topAnchor.constraint(equalTo: workoutTodayLabel.bottomAnchor, constant: 5),
+            workOutTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            workOutTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            workOutTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
     }
     

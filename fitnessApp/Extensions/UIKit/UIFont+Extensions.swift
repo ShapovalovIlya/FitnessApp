@@ -8,7 +8,6 @@
 import UIKit
 
 extension UIFont {
-    
     //Medium
     static func robotoMedium12() -> UIFont? {
         return UIFont.init(name: "Roboto-Medium", size: 12)
@@ -29,6 +28,7 @@ extension UIFont {
     static func robotoBold20() -> UIFont? {
         return UIFont.init(name: "Roboto-Bold", size: 20)
     }
+    //Thin
     
 }
 
