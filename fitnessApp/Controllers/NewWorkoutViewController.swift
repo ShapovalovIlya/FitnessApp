@@ -112,6 +112,7 @@ class NewWorkoutViewController: UIViewController {
         view.addSubview(dateAndRepeatView)
         view.addSubview(repsOrTimerLabel)
         view.addSubview(repsOrTimerView)
+        view.addSubview(saveButton)
     }
     private func setConstraints() {
         // newWorkoutLabel constraints
@@ -158,6 +159,13 @@ class NewWorkoutViewController: UIViewController {
             repsOrTimerView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
             repsOrTimerView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
             repsOrTimerView.heightAnchor.constraint(equalToConstant: view.frame.height / 2.5)
+        ])
+        // saveButton constraints
+        NSLayoutConstraint.activate([
+            saveButton.topAnchor.constraint(equalTo: repsOrTimerView.bottomAnchor, constant: 10),
+            saveButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
+            saveButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
+            saveButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -5)
         ])
     }
 }
