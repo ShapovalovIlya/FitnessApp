@@ -65,6 +65,8 @@ class MainViewController: UIViewController {
     private let noWorkoutImageView: UIImageView = {
         let image = UIImageView()
         image.image = UIImage(named: "backgroundImage")
+        image.contentMode = .scaleAspectFit
+        image.translatesAutoresizingMaskIntoConstraints = false
         return image
     }()
     
@@ -78,8 +80,8 @@ class MainViewController: UIViewController {
         
         setupViews()
         setConstrains()
-        workOutTableView.isHidden = false
-        noWorkoutImageView.isHidden = true
+        workOutTableView.isHidden = true
+        noWorkoutImageView.isHidden = false
         
     }
     
@@ -103,6 +105,8 @@ class MainViewController: UIViewController {
     //MARK: - Private Methods
     @objc private func addWorkoutButtonTapped() {
         print("addWorkoutButtonTapped")
+        let newWorkoutVC = NewWorkoutViewController()
+        present(newWorkoutVC, animated: true)
     }
     
 }
@@ -156,6 +160,14 @@ extension MainViewController {
             workOutTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             workOutTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             workOutTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ])
+        // noWorkoutImageView constrains
+        NSLayoutConstraint.activate([
+            noWorkoutImageView.topAnchor.constraint(equalTo: workoutTodayLabel.bottomAnchor),
+            noWorkoutImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            noWorkoutImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            noWorkoutImageView.heightAnchor.constraint(equalTo: view.widthAnchor, multiplier: 1),
+            
         ])
     }
     
