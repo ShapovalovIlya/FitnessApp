@@ -11,8 +11,11 @@ class WorkOutTableView: UIView {
     
     private let tableView: UITableView = {
         let table = UITableView()
-        table.backgroundView = UIImageView(image: UIImage(named: "backgroundImage"))
-        table.backgroundColor = .none
+        table.backgroundColor = .clear
+        table.separatorStyle = .none
+        table.showsVerticalScrollIndicator = false
+        table.bounces = false
+        
         table.translatesAutoresizingMaskIntoConstraints = false
         return table
     }()
@@ -59,21 +62,16 @@ extension WorkOutTableView: UITableViewDataSource {
         array.count
     }
     
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! WorkoutTableViewCell
         //cell.textLabel?.text = array[indexPath.row]
         cell.layer.cornerRadius = 15
         return cell
     }
-    
+}
+//MARK: - UITableViewDelegate
+extension WorkOutTableView: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         frame.height / 5
-    }
-}
-
-extension WorkOutTableView: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("cell tapped!")
     }
 }

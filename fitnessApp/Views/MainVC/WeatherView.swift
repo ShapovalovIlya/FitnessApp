@@ -82,9 +82,8 @@ class WeatherView: UIView {
         NSLayoutConstraint.activate([
             weatherDescriptionLabel.topAnchor.constraint(equalTo: weatherLabel.bottomAnchor, constant: 5),
             weatherDescriptionLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
-            weatherDescriptionLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10),
-            weatherDescriptionLabel.trailingAnchor.constraint(equalTo: weatherImage.leadingAnchor,constant: -10)
-            
+            weatherDescriptionLabel.trailingAnchor.constraint(equalTo: weatherImage.leadingAnchor,constant: -10),
+            weatherDescriptionLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10)
         ])
         
     }

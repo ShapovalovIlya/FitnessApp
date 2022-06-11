@@ -62,6 +62,12 @@ class MainViewController: UIViewController {
         return label
     }()
     
+    private let noWorkoutImageView: UIImageView = {
+        let image = UIImageView()
+        image.image = UIImage(named: "backgroundImage")
+        return image
+    }()
+    
     private let calendarView = CalendarView()
     private let weatherView = WeatherView()
     private let workOutTableView = WorkOutTableView()
@@ -72,6 +78,8 @@ class MainViewController: UIViewController {
         
         setupViews()
         setConstrains()
+        workOutTableView.isHidden = false
+        noWorkoutImageView.isHidden = true
         
     }
     
@@ -88,6 +96,7 @@ class MainViewController: UIViewController {
         view.addSubview(weatherView)
         view.addSubview(workoutTodayLabel)
         view.addSubview(workOutTableView)
+        view.addSubview(noWorkoutImageView)
         
     }
     

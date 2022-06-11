@@ -13,7 +13,7 @@ class WorkoutTableViewCell: UITableViewCell {
     
     private let workoutImage: UIImageView = {
         let image = UIImageView()
-        image.image = UIImage(systemName: "person.crop.circle")
+        image.image = UIImage(named: "imageCell")
         image.tintColor = .specialGray
         image.backgroundColor = .specialBackGround
         image.clipsToBounds = true
@@ -50,14 +50,18 @@ class WorkoutTableViewCell: UITableViewCell {
     }()
     
     private lazy var workoutButton: UIButton = {
-        let button = UIButton()
+        let button = UIButton(type: .system)
+        button.setTitle("Start", for: .normal)
+        button.tintColor = .specialGray
         button.backgroundColor = .specialYellow
         button.layer.cornerRadius = 5
+        button.addTarget(self, action: #selector(workoutButtonTapped), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addShadowOnView()
         return button
     }()
     
+    var stackView = UIStackView()
     
     //MARK: - init()
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -71,14 +75,22 @@ class WorkoutTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    //MARK: - Private Methods
+    
+    @objc private func workoutButtonTapped() {
+        print("workoutButtonTapped!")
+    }
+    
     private func setupViews() {
         backgroundColor = .specialBrown
-        
+        selectionStyle = .none
         addSubview(workoutImage)
         addSubview(workoutLabel)
-        addSubview(repsLabel)
-        addSubview(setsLabel)
-        addSubview(workoutButton)
+        stackView = UIStackView(arrangedSubviews: [repsLabel, setsLabel],
+                                axis: .horizontal,
+                                spacing: 10)
+        addSubview(stackView)
+        contentView.addSubview(workoutButton)
     }
     
     private func setConstrains() {
@@ -95,19 +107,11 @@ class WorkoutTableViewCell: UITableViewCell {
             workoutLabel.leadingAnchor.constraint(equalTo: workoutImage.trailingAnchor, constant: 10),
             workoutLabel.heightAnchor.constraint(equalToConstant: 20)
         ])
-        //repsLabel constrains
+        //stackView constrains
         NSLayoutConstraint.activate([
-            repsLabel.topAnchor.constraint(equalTo: workoutLabel.bottomAnchor),
-            repsLabel.leadingAnchor.constraint(equalTo: workoutImage.trailingAnchor, constant: 10),
-            repsLabel.heightAnchor.constraint(equalToConstant: 20),
-            repsLabel.widthAnchor.constraint(equalToConstant: 50)
-        ])
-        //setsLabel constrains
-        NSLayoutConstraint.activate([
-            setsLabel.topAnchor.constraint(equalTo: workoutLabel.bottomAnchor),
-            setsLabel.leadingAnchor.constraint(equalTo: repsLabel.trailingAnchor, constant: 10),
-            setsLabel.heightAnchor.constraint(equalToConstant: 20),
-            setsLabel.widthAnchor.constraint(equalToConstant: 50)
+            stackView.topAnchor.constraint(equalTo: workoutLabel.bottomAnchor),
+            stackView.leadingAnchor.constraint(equalTo: workoutImage.trailingAnchor, constant: 10),
+            stackView.heightAnchor.constraint(equalToConstant: 20),
         ])
         //workoutButton constrains
         NSLayoutConstraint.activate([
