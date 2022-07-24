@@ -8,7 +8,7 @@
 import UIKit
 
 extension UIColor {
-    static let specialBackGround = #colorLiteral(red: 0.9550663829, green: 0.9413058162, blue: 0.9020217061, alpha: 1)
+    static let specialBackGround = #colorLiteral(red: 0.9568627451, green: 0.9411764706, blue: 0.9019607843, alpha: 1)
     static let specialGray = #colorLiteral(red: 0.3176470588, green: 0.3176470588, blue: 0.3137254902, alpha: 1)
     static let specialGreen = #colorLiteral(red: 0.2040533721, green: 0.5727130771, blue: 0.5426018834, alpha: 1)
     static let specialDarkGreen = #colorLiteral(red: 0.06082018465, green: 0.3189553022, blue: 0.2902750075, alpha: 1)
